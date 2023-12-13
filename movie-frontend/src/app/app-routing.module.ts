@@ -6,8 +6,8 @@ import { TrailerComponent } from './components/trailer/trailer.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'review', component: ReviewComponent},
-  {path: 'trailer', component: TrailerComponent}
+  {path: 'review/:imdbId', component: ReviewComponent},
+  {path: 'trailer/:imdbId', component: TrailerComponent}
 ];
 
 @NgModule({

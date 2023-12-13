@@ -7,11 +7,5 @@ import { faPlayCircle } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  images = [62, 83, 466, 965, 982, 1043, 738].map(
-    (n) => `https://picsum.photos/id/${n}/900/500`
-  );
-  interval = 2000;
-  pauseOnHover = true;
-  pauseOnFocus = true;
-  faPlayCircle = faPlayCircle;
+ 
 }
