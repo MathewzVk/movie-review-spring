@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+
+
+<ngb-carousel
+  [interval]="interval"
+  [pauseOnHover]="pauseOnHover"
+  [pauseOnFocus]="pauseOnFocus"
+>
+  <ng-template ngbSlide *ngFor="let img of images; index as i">
+    <div>
+      <img
+        class="carousel-img"
+        [src]="img"
+        alt="My image {{ i + 1 }} description"
+      />
+      <div class="movie-details">
+        <div>
+          <img [src]="img" class="movie-poster-img" />
+        </div>
+        <div>
+          <fa-icon [icon]="faPlayCircle" class="play-button-icon"></fa-icon>
+        </div>
+        <div>
+          <button type="button" class="btn btn-warning review-btn">
+            Reviews
+          </button>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</ngb-carousel>
+
+      
+
+<router-outlet></router-outlet>
