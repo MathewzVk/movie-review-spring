@@ -23,6 +23,11 @@ export class TrailerComponent implements OnInit{
   }
 
   ngOnInit(): void {
+
+    if (this.movieService.movies()?.length === 0) {
+      this.movieService.getMovies();
+    }
+
     this.imdbId = this.route.snapshot.params['imdbId'];
     
     this.movieService.imdbId.set(this.imdbId);

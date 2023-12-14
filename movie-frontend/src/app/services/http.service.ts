@@ -9,6 +9,7 @@ import { Movie } from '../models/movie';
 export class HttpService {
 
   private baseUrl: string = "http://localhost:8080/api/v1/movies";
+  reviewUrl = 'http://localhost:8080/api/v1/reviews';
 
   constructor(private http:HttpClient) { }
 
@@ -20,4 +21,13 @@ export class HttpService {
     return this.http.get<Movie>(`${this.baseUrl}/${imdbId}`);
   }
 
+  postReview(review: PostReviewRequest) {
+    return this.http.post(this.reviewUrl, review);
+  }
+
+}
+
+export interface PostReviewRequest {
+  imdbId: string;
+  reviewBody: string;
 }

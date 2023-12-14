@@ -1,5 +1,5 @@
 import { Injectable, Signal, computed, signal } from '@angular/core';
-import { Movie } from '../models/movie';
+import { Movie, Review } from '../models/movie';
 import { HttpService } from './http.service';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -43,4 +43,16 @@ export class MovieService {
     }
     return this.sanitizer.bypassSecurityTrustResourceUrl('');
   });
+
+
+  reviewsForSelectedMovie: Signal<Review[] | null> = computed(() => {
+    const tempMovie = this.movies().find(
+      (movie) => movie.imdbId === this.selectedMovie()!?.imdbId
+    );
+    if (tempMovie) {
+      return tempMovie.reviewIds;
+    }
+    return null;
+  });
+
 }
